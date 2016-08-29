@@ -22,7 +22,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_COPY_FILES += \
     device/samsung/n8000/rootdir/init.target.rc:root/init.target.rc
 
-
 # Gps
 PRODUCT_COPY_FILES += \
     device/samsung/n8000/configs/gps.conf:system/etc/gps.conf \
@@ -42,7 +41,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10
 
+# Stlport
 PRODUCT_PACKAGES += \
-	libsecril-client-sap
+    libstlport
+
+# Packages
+PRODUCT_PACKAGES += \
+    libsecril-client \
+    libsecril-client-sap \
+
+# RIL
+PRODUCT_PACKAGES += \
+	libsamsung_symbols \
+	ril-wrapper
+
 
 $(call inherit-product, device/samsung/n80xx-common/n80xx-common.mk)

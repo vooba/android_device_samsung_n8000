@@ -17,6 +17,8 @@
 # Include n80xx BoardConfigCommon
 -include device/samsung/n80xx-common/BoardConfigCommon.mk
 
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/n8000/include
+
 # Inline kernel building
 #FIXME NOT READY YET - NEEDS DEFCONFIG
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
@@ -24,6 +26,13 @@ TARGET_KERNEL_CONFIG := cyanogenmod_n8000_defconfig
 
 #Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n8000/bluetooth
+
+# RIL
+BOARD_PROVIDES_LIBRIL := true
+BOARD_MODEM_TYPE := xmm6262
+
+#Kernel
+BOARD_RIL_CLASS := ../../../device/samsung/n8000/ril
 
 # assert
 TARGET_OTA_ASSERT_DEVICE := c0,p4noterf,n8000,GT-N8000
